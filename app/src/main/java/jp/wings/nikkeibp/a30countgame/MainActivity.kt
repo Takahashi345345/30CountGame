@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +36,9 @@ class MainActivity : AppCompatActivity() {
 
                 //カウント変更
                 tvChange()
+
+                //ずる防止メソッド
+                pcNotice()
             }
         }
 
@@ -53,6 +57,9 @@ class MainActivity : AppCompatActivity() {
 
                 //カウント変更
                 tvChange()
+
+                //ずる防止メソッド
+                pcNotice()
             }
         }
 
@@ -71,6 +78,9 @@ class MainActivity : AppCompatActivity() {
 
                 //カウント変更
                 tvChange()
+
+                //ずる防止メソッド
+                pcNotice()
             }
         }
     }
@@ -86,5 +96,14 @@ class MainActivity : AppCompatActivity() {
     private fun tvChange(){
         val tvCount = findViewById<TextView>(R.id.tvCount)
         tvCount.text = count.toString()
+    }
+
+    //ずる防止メソッド【プレイヤー交代(お知らせ)】
+    private  fun pcNotice(){
+        AlertDialog.Builder(this)
+            .setTitle("PLAYER CHANGE!!")
+            .setMessage("次のプレイヤーに代わったら\nOKボタンを押下してください。")
+            .setPositiveButton("OK",null)
+            .show()
     }
 }
